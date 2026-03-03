@@ -9,8 +9,6 @@ Original file is located at
 
 import streamlit as st
 import os
-from dotenv import load_dotenv
-
 from langchain_openai import ChatOpenAI
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -40,9 +38,7 @@ st.markdown("Ask anything about SCRI (PDF + Website Knowledge)")
 # -----------------------
 # LOAD MODEL
 # -----------------------
-load_dotenv()
-
-GROQ_API_KEY = "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"
+GROQ_API_KEY = st.secrets["GROQ_API_KEY"]
 
 llm = ChatOpenAI(
     api_key=GROQ_API_KEY,
